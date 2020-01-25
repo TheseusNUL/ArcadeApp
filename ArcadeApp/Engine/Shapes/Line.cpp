@@ -24,19 +24,19 @@ Vector2 Line::ClosestPoint(const Vector2& point, bool limitToSegment) const
 
 Vector2 Line::Midpoint() const
 {
-	return Vector2((m_point.GetX() + m_point1.GetX()) / 2.0f, (m_point.GetY() + m_point1.GetY()) / 2.0f);
+	return Vector2((m_point.x + m_point1.x) / 2.0f, (m_point.y + m_point1.y) / 2.0f);
 }
 
 float Line::Slope() const
 {
 	//rise / run
 
-	float slopeX = m_point1.GetX() - m_point.GetX();
+	float slopeX = m_point1.x - m_point.x;
 
 	if (fabsf(slopeX) < EPSILON)
 		return 0.0f;
 
-	float slopeY = m_point1.GetY() - m_point.GetY();
+	float slopeY = m_point1.y - m_point.y;
 	return slopeY / slopeX;
 }
 

@@ -14,19 +14,19 @@ void FileParser::AddCommand(const Command& command)
 
 bool FileParser::LoadFile(const std::string& path)
 {
-	std::ifstream in;
-	in.open(path);
+	std::ifstream inFile;
+	inFile.open(path);
 	std::string line = "";
 
-	if (!in.is_open)
+	if (!inFile.is_open())
 	{
 		std::cout << "Could not open the file: " << path << std::endl;
 		return false;
 	}
 
-	while (!in.eof) //end of file
+	while (!inFile.eof()) //end of file
 	{
-		std::getline(in, line); //get next line in file
+		std::getline(inFile, line); //get next line in file
 
 		size_t postion = std::string::npos; //end of line (no position)
 		
@@ -64,7 +64,7 @@ bool FileParser::LoadFile(const std::string& path)
 
 						while (lineNum < totalLines)
 						{
-							std::getline(in, line);
+							std::getline(inFile, line);
 
 							if (line.empty())
 							{

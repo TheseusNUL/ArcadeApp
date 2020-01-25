@@ -9,7 +9,7 @@ Vector2 Vector2::operator-() const
 	operates on one operand.This is done by not adding any parameters.The
 	function is const so it does not modify the objects internals.
 	--------------------------------------------------------------------*/
-	return Vector2(-m_x, -m_y);
+	return Vector2(-x, -y);
 }
 
 Vector2& Vector2::operator+=(const Vector2& other)
@@ -62,7 +62,7 @@ float Vector2::DistanceBetweenPoints(const Vector2& other) const
 float Vector2::DotProduct(const Vector2& other) const
 {
 	//returns scalar
-	return (m_x * other.m_x) + (m_y * other.m_y);
+	return (x * other.x) + (y * other.y);
 }
 
 float Vector2::AngleBetween(const Vector2& other) const
@@ -121,14 +121,14 @@ void Vector2::Rotate(float angle, const Vector2& point)
 	float cosine = cosf(angle); //takes radians
 	float sine = sinf(angle);
 
-	Vector2 thisVector(m_x, m_y);
+	Vector2 thisVector(x, y);
 
 	//move to center
 	thisVector -= point;
 
 	//do rotation
-	float x = thisVector.m_x * cosine - thisVector.m_y * sine;
-	float y = thisVector.m_x * sine + thisVector.m_y * cosine;
+	float x = thisVector.x * cosine - thisVector.y * sine;
+	float y = thisVector.x * sine + thisVector.y * cosine;
 
 	Vector2 rotation = Vector2(x, y);
 	
@@ -144,14 +144,14 @@ Vector2 Vector2::RotationalResult(float angle, const Vector2& point) const
 	float cosine = cosf(angle); //takes radians
 	float sine = sinf(angle);
 
-	Vector2 thisVector(m_x, m_y);
+	Vector2 thisVector(x, y);
 
 	//move to center
 	thisVector -= point;
 
 	//do rotation
-	float x = thisVector.m_x * cosine - thisVector.m_y * sine;
-	float y = thisVector.m_x * sine + thisVector.m_y * cosine;
+	float x = thisVector.x * cosine - thisVector.y * sine;
+	float y = thisVector.x * sine + thisVector.y * cosine;
 
 	Vector2 rotation = Vector2(x, y);
 

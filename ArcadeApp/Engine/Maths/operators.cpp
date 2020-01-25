@@ -6,13 +6,13 @@
 
 std::ostream& operator<<(std::ostream& consoleOut, const Vector2& vector)
 {
-	consoleOut << "X: " << vector.m_x << ", Y: " << vector.m_y << std::endl;
+	consoleOut << "X: " << vector.x << ", Y: " << vector.y << std::endl;
 	return consoleOut;
 }
 
 bool operator==(const Vector2& lhs, const Vector2& rhs)
 {
-	return bIsEqualTo(lhs.m_x, rhs.m_x) && bIsEqualTo(lhs.m_y, rhs.m_y);
+	return IsEqualTo(lhs.x, rhs.x) && IsEqualTo(lhs.y, rhs.y);
 }
 
 bool operator==(const Line& lhs, const Line& rhs)
@@ -22,18 +22,18 @@ bool operator==(const Line& lhs, const Line& rhs)
 
 Vector2 operator+(const Vector2& lhs, const Vector2 rhs)
 {
-	return Vector2(lhs.m_x + rhs.m_x, lhs.m_y + rhs.m_y);
+	return Vector2(lhs.x + rhs.x, lhs.y + rhs.y);
 }
 
 Vector2 operator-(const Vector2& lhs, const Vector2& rhs)
 {
 	//Vector subtraction
-	return Vector2(lhs.m_x - rhs.m_x, lhs.m_y - rhs.m_y);
+	return Vector2(lhs.x - rhs.x, lhs.y - rhs.y);
 }
 
 Vector2 operator*(const Vector2& vectorLHS, float scalarRHS) 
 {
-	return Vector2(vectorLHS.m_x * scalarRHS, vectorLHS.m_y * scalarRHS);
+	return Vector2(vectorLHS.x * scalarRHS, vectorLHS.y * scalarRHS);
 }
 
 Vector2 operator*(float scalarLHS, const Vector2 vectorRHS)
@@ -44,5 +44,5 @@ Vector2 operator*(float scalarLHS, const Vector2 vectorRHS)
 Vector2 operator/(const Vector2& vectorLHS, float scalarRHS)
 {
 	assert(fabsf(scalarRHS) > EPSILON);
-	return Vector2(vectorLHS.m_x / scalarRHS, vectorLHS.m_y / scalarRHS);
+	return Vector2(vectorLHS.x / scalarRHS, vectorLHS.y / scalarRHS);
 }

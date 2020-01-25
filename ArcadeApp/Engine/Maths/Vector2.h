@@ -9,14 +9,9 @@ class Vector2
 {
 public:
 	Vector2() : Vector2(0, 0) {}
-	Vector2(float x, float y) : m_x(x), m_y(y) {}
+	Vector2(float px, float py) : x(x), y(py) {}
 
 	static const Vector2 Zero;
-
-	inline void SetX(float x) { m_x = x; }
-	inline void SetY(float y) { m_y = y; }
-	inline float GetX() const { return m_x; }
-	inline float GetY() const { return m_y; }
 	
 	friend std::ostream& operator<<(std::ostream& consoleOut, const Vector2& vector);
 	friend Vector2 operator*(const Vector2& vectorLHS, float scalarRHS);
@@ -48,9 +43,7 @@ public:
 	void Rotate(float angle, const Vector2& point);
 	Vector2 RotationalResult(float angle, const Vector2& point) const;
 
-
-private:
-	float m_x;
-	float m_y;
+	float x;
+	float y;
 };
 

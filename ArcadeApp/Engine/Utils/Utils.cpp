@@ -2,17 +2,17 @@
 #include "../Maths/Vector2.h"
 #include <cmath>
 
-bool bIsEqualTo(float x, float y)
+bool IsEqualTo(float x, float y)
 {
 	return fabsf(x - y) < EPSILON;
 }
 
-bool bIsGreaterThanOrEqualTo(float x, float y)
+bool IsGreaterThanOrEqualTo(float x, float y)
 {
-	return x > y || bIsEqualTo(x, y);
+	return x > y || IsEqualTo(x, y);
 }
 
-bool bIsLessThanOrEqualTo(float x, float y)
+bool IsLessThanOrEqualTo(float x, float y)
 {
-	return x < y || bIsEqualTo(x, y);
+	return x < y || IsEqualTo(x, y);
 }

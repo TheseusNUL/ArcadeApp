@@ -17,7 +17,7 @@ public:
 	Vector2 GetCentrePoint() const override;
 
 	float Area() const;
-	bool bContainsPoint(const Vector2& point) const;
+	bool ContainsPoint(const Vector2& point) const;
 
 private:
 	float Area(const Vector2& point, const Vector2& point1, const Vector2& point2) const;

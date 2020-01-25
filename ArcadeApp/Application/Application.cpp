@@ -3,6 +3,9 @@
 #include "Application.h"
 
 #include "States/ArcadeState.h"
+#include "States/GameState.h"
+
+#include "Games/Breakout/Breakout.h"
 
 Application& Application::Singleton()
 {
@@ -16,6 +19,16 @@ bool Application::Init(uint32_t width, uint32_t height, uint32_t magnification)
 
 	std::unique_ptr<AracadeState> arcadeState = std::make_unique<AracadeState>();
 	PushState(std::move(arcadeState));
+
+	/*----------------------------------------------------------------------------------------------
+		Testing code
+	----------------------------------------------------------------------------------------------*/
+
+	std::unique_ptr<Breakout> breakout = std::make_unique<Breakout>();
+	std::unique_ptr<GameState> breakoutState = std::make_unique<GameState>(std::move(breakout));
+
+	PushState(std::move(breakoutState));
+	/*--------------------------------------------------------------------------------------------*/
 
 	return m_pWindow;
 }

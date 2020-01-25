@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Application\Games\Breakout\Breakout.cpp" />
+    <ClCompile Include="Application\Games\Breakout\Excluder.cpp" />
     <ClCompile Include="Application\States\ArcadeState.cpp" />
     <ClCompile Include="Application\States\GameState.cpp" />
     <ClCompile Include="Engine\Input\GameController.cpp" />
@@ -148,6 +150,7 @@
     <ClCompile Include="Engine\Shapes\Circle.cpp" />
     <ClCompile Include="Engine\Graphics\Colour.cpp" />
     <ClCompile Include="Engine\Shapes\Line.cpp" />
+    <ClCompile Include="Engine\Utils\FileParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Engine\Maths\operators.cpp" />
     <ClCompile Include="Engine\Graphics\Screen.cpp" />
@@ -159,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Application\Games\Breakout\Boundries.h" />
+    <ClInclude Include="Application\Games\Breakout\Breakout.h" />
+    <ClInclude Include="Application\Games\Breakout\Excluder.h" />
     <ClInclude Include="Application\Games\IGame.h" />
     <ClInclude Include="Application\States\ArcadeState.h" />
     <ClInclude Include="Application\States\GameState.h" />
@@ -174,6 +180,7 @@
     <ClInclude Include="Engine\Graphics\Screen.h" />
     <ClInclude Include="Engine\Graphics\ScreenBuffer.h" />
     <ClInclude Include="Engine\Shapes\Triangle.h" />
+    <ClInclude Include="Engine\Utils\FileParser.h" />
     <ClInclude Include="Engine\Utils\Utils.h" />
     <ClInclude Include="Engine\Maths\Vector2.h" />
   </ItemGroup>

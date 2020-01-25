@@ -8,12 +8,12 @@ Circle::Circle(const Vector2 centrePoint, float radius) :
 	m_points.push_back(centrePoint);
 }
 
-bool Circle::bIntersects(const Circle& other) const
+bool Circle::Intersects(const Circle& other) const
 {
 	return GetCentrePoint().DistanceBetweenPoints(other.GetCentrePoint()) < m_radius + other.m_radius;
 }
 
-bool Circle::bContainsPoint(const Vector2& point) const
+bool Circle::ContainsPoint(const Vector2& point) const
 {
-	return bIsLessThanOrEqualTo(GetCentrePoint().DistanceBetweenPoints(point), m_radius);
+	return IsLessThanOrEqualTo(GetCentrePoint().DistanceBetweenPoints(point), m_radius);
 }

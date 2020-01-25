@@ -20,8 +20,8 @@ public:
 	void SetRectHeight();
 	void MoveTo(const Vector2& pos);
 
-	bool bIntersects(const AARect& other) const;
-	bool bCointainsPoint(const Vector2& point) const;
+	bool Intersects(const AARect& other) const;
+	bool CointainsPoint(const Vector2& point) const;
 
 	static AARect Inset(const AARect& rect, Vector2& insets);
 

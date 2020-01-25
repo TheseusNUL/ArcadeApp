@@ -9,7 +9,7 @@ class Screen;
 class IGame
 {
 public:
-	~IGame();
+	~IGame() {}
 
 	virtual void Init(GameController& controller) = 0;
 	virtual void Update(uint32_t deltaTime) = 0;

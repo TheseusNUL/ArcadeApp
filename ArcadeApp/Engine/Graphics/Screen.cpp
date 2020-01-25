@@ -78,7 +78,7 @@ void Screen::Draw(const Vector2& point, const Colour& colour)
 	assert(m_pWindow);
 
 	if (m_pWindow)
-		m_backBuffer.SetPixel(colour, point.GetX(), point.GetY());
+		m_backBuffer.SetPixel(colour, point.x, point.y);
 }
 
 void Screen::Draw(const Line& line, const Colour& colour)
@@ -89,10 +89,10 @@ void Screen::Draw(const Line& line, const Colour& colour)
 	{
 		int dx, dy;
 
-		int x = roundf(line.GetPoint().GetX());
-		int y = roundf(line.GetPoint().GetY());
-		int x1 = roundf(line.GetPoint1().GetX());
-		int y1 = roundf(line.GetPoint1().GetY());
+		int x = roundf(line.GetPoint().x);
+		int y = roundf(line.GetPoint().y);
+		int x1 = roundf(line.GetPoint1().x);
+		int y1 = roundf(line.GetPoint1().y);
 
 		dx = x1 - x;
 		dy = y1 - y;
@@ -188,7 +188,7 @@ void Screen::Draw(const Circle& circle, const Colour& colour, bool fillPoly, con
 
 	float angle = TWO_PI / float(NUM_CIRCLE_SEGS);
 	
-	Vector2 point = Vector2(circle.GetCentrePoint().GetX() + circle.GetRadius(), circle.GetCentrePoint().GetY());
+	Vector2 point = Vector2(circle.GetCentrePoint().x + circle.GetRadius(), circle.GetCentrePoint().y);
 	Vector2 point1 = point;
 
 	Line nextLine;
@@ -228,29 +228,29 @@ void Screen::FillPoly(const std::vector<Vector2>& points, const Colour& colour)
 	if (points.size() > 0)
 	{
 		//Set defaults
-		float top = points[0].GetY();
-		float bottom = points[0].GetY();
-		float right = points[0].GetX();
-		float left = points[0].GetX();
+		float top = points[0].y;
+		float bottom = points[0].y;
+		float right = points[0].x;
+		float left = points[0].x;
 
 		//search through points and find most extreme
 		for (size_t i = 1; i < points.size(); ++i)
 		{
-			if (points[i].GetY() < top)
+			if (points[i].y < top)
 			{
-				top = points[i].GetY();
+				top = points[i].y;
 			}
-			if (points[i].GetY() > bottom)
+			if (points[i].y > bottom)
 			{  
-				bottom = points[i].GetY();
+				bottom = points[i].y;
 			}
-			if (points[i].GetX() < left)
+			if (points[i].x < left)
 			{
-				left = points[i].GetX();
+				left = points[i].x;
 			}
-			if (points[i].GetX() > right)
+			if (points[i].x > right)
 			{
-				right = points[i].GetX();
+				right = points[i].x;
 			}
 		}
 
@@ -264,18 +264,18 @@ void Screen::FillPoly(const std::vector<Vector2>& points, const Colour& colour)
 			//iterate through points
 			for (size_t j = 0; j < points.size(); ++j)
 			{
-				float currentY = points[j].GetY();
-				float lastY = points[last].GetY();
+				float currentY = points[j].y;
+				float lastY = points[last].y;
 
 				//if pixelY is between point and last point.
 				if ((currentY <= static_cast<float>(i) && lastY > static_cast<float>(i) || lastY <= static_cast<float>(i) && currentY > static_cast<float>(i)))
 				{
 					float demoninator = lastY - currentY;
-					if(bIsEqualTo(demoninator, 0))
+					if(IsEqualTo(demoninator, 0))
 						continue;
 					
 					//find x intercept
-					float x = points[j].GetX() + (i - currentY) / (demoninator) * (points[last].GetX() - points[j].GetX());
+					float x = points[j].x + (i - currentY) / (demoninator) * (points[last].x - points[j].x);
 					xintercept.push_back(x);
 				}
 

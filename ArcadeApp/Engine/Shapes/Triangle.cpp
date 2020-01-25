@@ -10,8 +10,8 @@ Triangle::Triangle(const Vector2& point, const Vector2& point1, const Vector2& p
 
 Vector2 Triangle::GetCentrePoint() const
 {
-	float x = (m_points[0].GetX() + m_points[1].GetX() + m_points[2].GetX()) / 3;
-	float y = (m_points[0].GetY() + m_points[1].GetY() + m_points[2].GetY()) / 3;
+	float x = (m_points[0].x + m_points[1].x + m_points[2].x)/ 3;
+	float y = (m_points[0].y + m_points[1].y + m_points[2].y)/ 3;
 
 	return Vector2(x, y);
 }
@@ -21,7 +21,7 @@ float Triangle::Area() const
 	return Area(GetPoint(), GetPoint1(), GetPoint2());
 }
 
-bool Triangle::bContainsPoint(const Vector2& point) const
+bool Triangle::ContainsPoint(const Vector2& point) const
 {
 	//divide triangle into three sub-triangles. If sum of sub-triangles is equal to area of triangle then triangle contains point
 
@@ -31,7 +31,7 @@ bool Triangle::bContainsPoint(const Vector2& point) const
 	float a2 = Area(GetPoint(), point, GetPoint2());
 	float a3 = Area(GetPoint(), GetPoint1(), point);
 
-	return bIsEqualTo(area, a1 + a2 + a3);
+	return IsEqualTo(area, a1 + a2 + a3);
 }
 
 float Triangle::Area(const Vector2& point, const Vector2& point1, const Vector2& point2) const

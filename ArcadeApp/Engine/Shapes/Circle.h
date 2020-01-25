@@ -12,8 +12,8 @@ public:
 	inline void SetRadius(float radius) {m_radius = radius; }
 	inline void MoveTo(const Vector2& pos) { m_points[0] = pos; }
 
-	bool bIntersects(const Circle& other) const;
-	bool bContainsPoint(const Vector2& point) const;
+	bool Intersects(const Circle& other) const;
+	bool ContainsPoint(const Vector2& point) const;
 
 private:
 	float m_radius;
